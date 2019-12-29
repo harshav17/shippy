@@ -7,9 +7,9 @@ import (
 	"sync"
 
 	// Import the generated protobuf code
+	pb "github.com/harshav17/shippy/consignment-service/proto/consignment"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
-	pb "soochi.me/consignment-service/proto/consignment"
 )
 
 const (

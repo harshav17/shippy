@@ -1,4 +1,4 @@
-module soochi.me/consignment-service
+module github.com/harshav17/shippy/consignment-service
 
 go 1.13
 
