@@ -5,14 +5,13 @@ package consignment
 
 import (
 	fmt "fmt"
-	math "math"
-
 	proto "github.com/golang/protobuf/proto"
+	math "math"
+)
 
+import (
 	client "github.com/micro/go-micro/client"
-
 	server "github.com/micro/go-micro/server"
-
 	context "golang.org/x/net/context"
 )
 
