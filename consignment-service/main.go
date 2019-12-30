@@ -67,7 +67,7 @@ func (s *service) GetConsignments(ctx context.Context, req *pb.GetRequest, res *
 
 func main() {
 
-	repo := &Repository{}
+	//repo := &Repository{}
 
 	// Create a new service. Optionally include some options here.
 	srv := micro.NewService(
@@ -80,7 +80,7 @@ func main() {
 	srv.Init()
 
 	// Register handler
-	pb.RegisterShippingServiceHandler(srv.Server(), &service{repo})
+	//pb.RegisterShippingServiceHandler(srv.Server(), &service{repo})
 
 	// Run the server
 	if err := srv.Run(); err != nil {
