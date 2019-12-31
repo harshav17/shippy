@@ -6,6 +6,9 @@ services:
   consignment-cli:
     build: ./consignment-cli
 
+  user-cli:
+    build: ./user-cli
+
   consignment-service:
     build: ./consignment-service
     ports:
@@ -28,6 +31,13 @@ services:
       - 50053:50051
     environment:
       MICRO_ADDRESS: ":50051"
+      DB_NAME: "postgres"
+      DB_HOST: "database"
+      DB_PORT: "5432"
+      DB_USER: "postgres"
+      DB_PASSWORD: "postgres"
+    depends_on:
+      - database
 
   datastore:
     image: mongo
