@@ -17,7 +17,7 @@ RUN go mod download
 
 # Build the binary, with a few flags which will allow
 # us to run this binary in Alpine. 
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o consignment-service
+RUN CGO_ENABLED=0 GOOS=linux go build -o consignment-service -a -installsuffix cgo main.go handler.go datastore.go repository.go
 
 # Here we're using a second FROM statement, which is strange,
 # but this tells Docker to start a new build process with this
@@ -35,7 +35,7 @@ WORKDIR /app
 # we pull the binary from the container named `builder`, within
 # this build context. This reaches into our previous image, finds
 # the binary we built, and pulls it into this container. Amazing!
-COPY --from=builder /app/consignment-service/consignment-service .
+COPY --from=builder /app/consignment-service .
 
 # Run the binary as per usual! This time with a binary build in a
 # separate container, with all of the correct dependencies and
