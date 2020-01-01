@@ -5,6 +5,7 @@ go 1.13
 require (
 	github.com/DataDog/zstd v1.4.4 // indirect
 	github.com/golang/protobuf v1.3.2
+	github.com/harshav17/shippy/user-service v0.0.0-20191231232129-ca409448b551
 	github.com/harshav17/shippy/vessel-service v0.0.0-20191230045311-9acc20440fcd
 	github.com/micro/go-micro v1.18.0
 	github.com/tidwall/pretty v1.0.0 // indirect

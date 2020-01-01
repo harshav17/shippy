@@ -4,8 +4,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/micro/go-micro/config/cmd"
-
 	pb "github.com/harshav17/shippy/user-service/proto/user"
 	"github.com/micro/cli"
 	"github.com/micro/go-micro"
@@ -14,8 +12,6 @@ import (
 )
 
 func main() {
-	cmd.Init()
-
 	// Create new greeter client
 	client := pb.NewUserServiceClient("go.micro.srv.user", microclient.DefaultClient)
 
@@ -71,6 +67,17 @@ func main() {
 			for _, v := range getAll.Users {
 				log.Println(v)
 			}
+
+			authResponse, err := client.Auth(context.TODO(), &pb.User{
+				Email:    email,
+				Password: password,
+			})
+
+			if err != nil {
+				log.Fatalf("Could not authenticate user: %s error: %v\n", email, err)
+			}
+
+			log.Printf("Your access token is: %s \n", authResponse.Token)
 
 			os.Exit(0)
 		}),

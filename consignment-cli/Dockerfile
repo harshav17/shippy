@@ -19,4 +19,6 @@ RUN mkdir /app
 WORKDIR /app
 COPY --from=builder /app/consignment-cli .
 
+ENTRYPOINT ["./consignment-cli"]
+
 CMD ["./consignment-cli"]
